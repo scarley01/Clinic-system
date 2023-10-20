@@ -46,11 +46,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="accman.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="accman.Designer.cs">
+      <DependentUpon>accman.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Admin.Designer.cs">
       <DependentUpon>Admin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="appman.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="appman.Designer.cs">
+      <DependentUpon>appman.cs</DependentUpon>
+    </Compile>
+    <Compile Include="clinicman.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="clinicman.Designer.cs">
+      <DependentUpon>clinicman.cs</DependentUpon>
     </Compile>
     <Compile Include="docman.cs">
       <SubType>Form</SubType>
@@ -64,16 +82,34 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="patman.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="patman.Designer.cs">
+      <DependentUpon>patman.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="accman.resx">
+      <DependentUpon>accman.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Admin.resx">
       <DependentUpon>Admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="appman.resx">
+      <DependentUpon>appman.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="clinicman.resx">
+      <DependentUpon>clinicman.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="docman.resx">
       <DependentUpon>docman.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="patman.resx">
+      <DependentUpon>patman.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
