@@ -56,6 +56,7 @@
             this.doctors.TabIndex = 1;
             this.doctors.Text = "Manage Doctors";
             this.doctors.UseVisualStyleBackColor = true;
+            this.doctors.Click += new System.EventHandler(this.doctors_Click);
             // 
             // accounts
             // 
@@ -66,6 +67,7 @@
             this.accounts.TabIndex = 2;
             this.accounts.Text = "Manage Accounts";
             this.accounts.UseVisualStyleBackColor = true;
+            this.accounts.Click += new System.EventHandler(this.accounts_Click);
             // 
             // button1
             // 
@@ -76,6 +78,7 @@
             this.button1.TabIndex = 4;
             this.button1.Text = "Exit";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -86,6 +89,7 @@
             this.button2.TabIndex = 3;
             this.button2.Text = "Logout";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Admin
             // 

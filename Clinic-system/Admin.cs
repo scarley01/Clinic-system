@@ -16,5 +16,31 @@ namespace Clinic_system
         {
             InitializeComponent();
         }
+
+        private void doctors_Click(object sender, EventArgs e)
+        {
+            docman docman = new docman();
+            docman.Show();
+        }
+
+        private void accounts_Click(object sender, EventArgs e)
+        {
+            accman accman = new accman();
+            accman.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //logout 
+            this.Close();
+            Login login = new Login();
+            login.Show();
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

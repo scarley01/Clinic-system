@@ -138,6 +138,7 @@
             this.add.TabIndex = 9;
             this.add.Text = "Add Doctor";
             this.add.UseVisualStyleBackColor = true;
+            this.add.Click += new System.EventHandler(this.add_Click);
             // 
             // update
             // 
@@ -148,6 +149,7 @@
             this.update.TabIndex = 10;
             this.update.Text = "Update Doctor";
             this.update.UseVisualStyleBackColor = true;
+            this.update.Click += new System.EventHandler(this.update_Click);
             // 
             // delete
             // 
@@ -168,14 +170,18 @@
             this.exit.TabIndex = 12;
             this.exit.Text = "Exit";
             this.exit.UseVisualStyleBackColor = true;
+            this.exit.Click += new System.EventHandler(this.exit_Click);
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(20, 198);
+            this.dataGridView1.Location = new System.Drawing.Point(96, 198);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(768, 240);
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(620, 240);
             this.dataGridView1.TabIndex = 13;
+            this.dataGridView1.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_RowEnter);
             // 
             // docman
             // 
@@ -198,6 +204,8 @@
             this.Controls.Add(this.label1);
             this.Name = "docman";
             this.Text = "DoctorMangaer";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.docman_FormClosing);
+            this.Load += new System.EventHandler(this.docman_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
