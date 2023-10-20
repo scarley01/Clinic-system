@@ -32,13 +32,18 @@ namespace Clinic_system
         private void button2_Click(object sender, EventArgs e)
         {
             //logout 
-            this.Close();
+            this.Hide();
             Login login = new Login();
             login.Show();
 
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void Admin_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
         }

@@ -153,5 +153,29 @@ namespace Clinic_system
             }
             load();
         }
+
+        private void delete_Click(object sender, EventArgs e)
+        {
+            //Delete the selected row
+            string query = "DELETE FROM Doctors WHERE Doctor_ID=@ID";
+            SqlConnection con = new SqlConnection(connectionString);
+            SqlCommand cmd = new SqlCommand(query, con);
+            cmd.Parameters.AddWithValue("@ID", rowID);
+            try
+            {
+                con.Open();
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Doctor deleted successfully");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+            load();
+        }
     }
 }

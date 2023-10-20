@@ -103,6 +103,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Name = "Admin";
             this.Text = "Admin Manager";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Admin_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 

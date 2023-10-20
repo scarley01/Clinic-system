@@ -160,6 +160,7 @@
             this.delete.TabIndex = 11;
             this.delete.Text = "Delete Doctor";
             this.delete.UseVisualStyleBackColor = true;
+            this.delete.Click += new System.EventHandler(this.delete_Click);
             // 
             // exit
             // 

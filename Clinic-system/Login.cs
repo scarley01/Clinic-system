@@ -13,7 +13,7 @@ namespace Clinic_system
 {
     public partial class Login : Form
     {
-        //sql connecting string to /SQLExpress project Clinic
+       
         string connectionString = @"Data Source=.\SQLExpress;Initial Catalog=Clinic;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False";
         public Login()
         {
@@ -30,8 +30,13 @@ namespace Clinic_system
             SqlCommand cmd = new SqlCommand(query, con);
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             adapter.Fill(dt);
-           
-            if (dt.Rows.Count == 1)
+            string query2 = "Select Status from Login WHERE username = '" + uname.Text.Trim() + "' AND password = '" + pword.Text.Trim() + "'";
+            SqlCommand cmd2 = new SqlCommand(query2, con);
+            con.Open();
+            query2 = cmd2.ExecuteScalar().ToString();
+            con.Close();
+         
+            if (dt.Rows.Count == 1 && query2 == "Admin")
             {
                 Admin main = new Admin();
                 
@@ -39,6 +44,12 @@ namespace Clinic_system
                 this.Hide();
                 
                 
+            }
+            else if(dt.Rows.Count == 1 && query2 == "Staff")
+            {
+                clinicman clinicman = new clinicman();
+                clinicman.Show();
+                this.Hide();
             }
             else
             {
