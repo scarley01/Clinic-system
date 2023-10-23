@@ -188,6 +188,7 @@
             this.button1.TabIndex = 34;
             this.button1.Text = "Add Patient";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -198,6 +199,7 @@
             this.button2.TabIndex = 35;
             this.button2.Text = "Update Patient";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -218,14 +220,17 @@
             this.button4.TabIndex = 37;
             this.button4.Text = "Exit";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 163);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(1013, 204);
             this.dataGridView1.TabIndex = 38;
+            this.dataGridView1.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_RowEnter);
             // 
             // patman
             // 
@@ -253,6 +258,8 @@
             this.Controls.Add(this.label1);
             this.Name = "patman";
             this.Text = "PatientManager";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.patman_FormClosing);
+            this.Load += new System.EventHandler(this.patman_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

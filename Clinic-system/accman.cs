@@ -58,7 +58,7 @@ namespace Clinic_system
         {
             load();
 
-
+            dataGridView1.ClearSelection();
             //clear the textboxes
             textBox1.Clear();
             textBox2.Clear();
@@ -116,7 +116,7 @@ namespace Clinic_system
         private void button2_Click(object sender, EventArgs e)
         {
 
-            string query = "UPDATE Login SET Username=@Username, Password=@Password, Status=@Status WHERE ID=@ID";
+            string query = "UPDATE Login SET Username=@Username, Password=@Password, Status=@Status WHERE Login_id=@ID";
             SqlConnection con = new SqlConnection(connectionString);
             SqlCommand cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@Username", textBox1.Text);
@@ -165,6 +165,29 @@ namespace Clinic_system
             textBox2.Text = row.Cells[2].Value.ToString();
             comboBox1.Text = row.Cells[3].Value.ToString();
             dataGridView1.ClearSelection();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string query = "DELETE FROM Login WHERE Login_id=@ID";
+            SqlConnection con = new SqlConnection(connectionString);
+            SqlCommand cmd = new SqlCommand(query, con);
+            cmd.Parameters.AddWithValue("@ID", rowID);
+            try
+            {
+                con.Open();
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Login deleted successfully");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+            load();
         }
     }
 }
