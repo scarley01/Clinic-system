@@ -51,7 +51,10 @@ namespace Clinic_system
 
         private void accman_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+            this.Hide();
+            Admin admin
+                = new Admin();
+            admin.Show();
         }
 
         private void accman_Load(object sender, EventArgs e)

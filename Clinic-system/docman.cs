@@ -118,7 +118,9 @@ namespace Clinic_system
 
         private void docman_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+            this.Hide();
+            Admin admin = new Admin();
+            admin.Show();
         }
 
         private void update_Click(object sender, EventArgs e)

@@ -19,12 +19,14 @@ namespace Clinic_system
 
         private void doctors_Click(object sender, EventArgs e)
         {
+            this.Hide();
             docman docman = new docman();
             docman.Show();
         }
 
         private void accounts_Click(object sender, EventArgs e)
         {
+            this.Hide();
             accman accman = new accman();
             accman.Show();
         }

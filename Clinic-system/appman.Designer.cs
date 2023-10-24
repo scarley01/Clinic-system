@@ -49,11 +49,13 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 163);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(1013, 204);
             this.dataGridView1.TabIndex = 57;
+            this.dataGridView1.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_RowEnter_1);
             // 
             // button4
             // 
@@ -64,6 +66,7 @@
             this.button4.TabIndex = 56;
             this.button4.Text = "Exit";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -74,6 +77,7 @@
             this.button3.TabIndex = 55;
             this.button3.Text = "Delete Appointment";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button1
             // 
@@ -84,6 +88,7 @@
             this.button1.TabIndex = 53;
             this.button1.Text = "Add Appointment";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label5
             // 
@@ -222,6 +227,7 @@
             this.Controls.Add(this.label1);
             this.Name = "appman";
             this.Text = "AppointmentManager";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.appman_FormClosing);
             this.Load += new System.EventHandler(this.appman_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

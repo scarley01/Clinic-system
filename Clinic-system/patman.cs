@@ -116,22 +116,75 @@ namespace Clinic_system
 
         private void button4_Click(object sender, EventArgs e)
         {
+            this.Hide();
             clinicman clinicman = new clinicman();
             clinicman.Show();
-            this.Close();
+            
         }
 
         private void patman_FormClosing(object sender, FormClosingEventArgs e)
         {
+            this.Hide();
             clinicman clinicman = new clinicman();
             clinicman.Show();
-            this.Close();
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             //Update Patient
-            string query = "Update Patients Set ";
+            string query = "Update Patients Set First_Name = @Fname, Last_Name = @Lname, Sex = @sex, Address= @address, Zip = @zip, Phone = @phone, DOB = @DOB";
+            SqlConnection con = new SqlConnection(connectionString);
+            SqlCommand cmd = new SqlCommand(query, con);
+            cmd.Parameters.AddWithValue("@Fname", textBox1.Text);
+            cmd.Parameters.AddWithValue("@Lname", textBox2.Text);
+            cmd.Parameters.AddWithValue("@Sex", comboBox2.Text);
+            cmd.Parameters.AddWithValue("@Address", textBox6.Text);
+            cmd.Parameters.AddWithValue("@Zip", textBox5.Text);
+            cmd.Parameters.AddWithValue("@Phone", textBox4.Text);
+            cmd.Parameters.AddWithValue("@DOB", dateTimePicker1.Text);
+            //check if the fields are empty
+            if (string.IsNullOrEmpty(textBox1.Text) || string.IsNullOrEmpty(textBox2.Text) || string.IsNullOrEmpty(comboBox2.Text) || string.IsNullOrEmpty(textBox6.Text) || string.IsNullOrEmpty(textBox5.Text) || string.IsNullOrEmpty(textBox4.Text) || string.IsNullOrEmpty(dateTimePicker1.Text))
+            {
+                MessageBox.Show("Please fill in all the fields");
+                return;
+            }
+
+            try
+            {
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+                load();
+                MessageBox.Show("Patient Updated Successfully");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            load();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            //Delete Patient from database and refresh the datagridview
+            string query = "Delete From Patients Where Patient_ID = @ID";
+            SqlConnection con = new SqlConnection(connectionString);
+            SqlCommand cmd = new SqlCommand(query, con);    
+            cmd.Parameters.AddWithValue("@ID", rowID);
+            try
+            {
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+                load();
+                MessageBox.Show("Patient Deleted Successfully");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            load();
         }
     }
 }
